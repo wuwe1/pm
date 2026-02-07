@@ -94,7 +94,7 @@ parallel: true
 
 ```bash
 # 克隆仓库
-git clone https://github.com/automazeio/pm.git /tmp/pm-install
+git clone https://github.com/wuwe1/pm.git /tmp/pm-install
 
 # 复制到你的项目
 cp -r /tmp/pm-install/pm/ /path/to/your/project/.claude/
@@ -153,7 +153,7 @@ done
 ```
 pm/                           # .claude/ 目录下
 ├── pm.config                 # GitHub 仓库检测
-├── commands/pm/              # 7 个核心命令
+├── commands/                 # 7 个核心命令
 ├── rules/                    # 4 个规则文件
 │   ├── 6031-principles.md    # MIT 6.031 核心原则
 │   ├── frontmatter-spec.md   # 文件约定规范

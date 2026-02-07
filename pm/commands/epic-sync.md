@@ -32,7 +32,7 @@ ls .claude/epics/$ARGUMENTS/[0-9]*.md 2>/dev/null | wc -l
 
 ```bash
 remote_url=$(git remote get-url origin 2>/dev/null || echo "")
-if [[ "$remote_url" == *"automazeio/pm"* ]] || [[ "$remote_url" == *"tidbit/ccpm"* ]]; then
+if [[ "$remote_url" == *"wuwe1/pm"* ]]; then
   echo "❌ 错误：不能同步到模板仓库！"
   echo "请更新 remote origin 到你自己的仓库。"
   exit 1

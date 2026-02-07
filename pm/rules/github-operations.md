@@ -8,7 +8,7 @@
 
 ```bash
 remote_url=$(git remote get-url origin 2>/dev/null || echo "")
-if [[ "$remote_url" == *"automazeio/pm"* ]] || [[ "$remote_url" == *"automazeio/ccpm"* ]] || [[ "$remote_url" == *"tidbit/ccpm"* ]]; then
+if [[ "$remote_url" == *"wuwe1/pm"* ]]; then
   echo "❌ 错误：不能在 PM 模板仓库上执行此操作！"
   echo ""
   echo "此仓库是模板，不应在此创建 Issues 或 PR。"
