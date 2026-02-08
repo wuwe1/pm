@@ -16,15 +16,15 @@ allowed-tools: Bash, Read, Write, LS, Task
 
 1. **验证 Epic 存在**：
    ```bash
-   test -f .claude/epics/$ARGUMENTS/epic.md || echo "❌ Epic 未找到。运行：/pm:prd-parse $ARGUMENTS"
+   test -f .claude/epics/$ARGUMENTS/epic.md || echo "✗ Epic 未找到。运行：/pm:prd-parse $ARGUMENTS"
    ```
 
 2. **验证已同步到 GitHub**：检查 Epic frontmatter 中 `github` 字段非空
-   - 为空时："❌ Epic 未同步。先运行：/pm:epic-sync $ARGUMENTS"
+   - 为空时："✗ Epic 未同步。先运行：/pm:epic-sync $ARGUMENTS"
 
 3. **检查未提交更改**：
    ```bash
-   [ -n "$(git status --porcelain)" ] && echo "❌ 有未提交的更改。请先 commit 或 stash。"
+   [ -n "$(git status --porcelain)" ] && echo "✗ 有未提交的更改。请先 commit 或 stash。"
    ```
 
 4. **检查 Agent Teams 是否启用**：
@@ -33,7 +33,7 @@ allowed-tools: Bash, Read, Write, LS, Task
 
    如未启用，输出：
    ```
-   ❌ Agent Teams 未启用。请在 settings.json 中添加：
+   ✗ Agent Teams 未启用。请在 settings.json 中添加：
    { "env": { "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1" } }
    或设置环境变量：export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
    然后重启 Claude Code。
@@ -47,7 +47,7 @@ allowed-tools: Bash, Read, Write, LS, Task
 git checkout main && git pull origin main
 git checkout -b epic/$ARGUMENTS
 git push -u origin epic/$ARGUMENTS
-echo "✅ 已创建分支：epic/$ARGUMENTS"
+echo "✓ 已创建分支：epic/$ARGUMENTS"
 ```
 
 如分支已存在：
@@ -109,7 +109,7 @@ Team Lead（主 session）监控任务完成情况：
 所有任务完成后输出：
 
 ```
-✅ Epic $ARGUMENTS 所有任务已完成！
+✓ Epic $ARGUMENTS 所有任务已完成！
 
 完成情况：
   - 总任务：{total}

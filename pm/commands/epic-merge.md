@@ -16,7 +16,7 @@ allowed-tools: Bash, Read, Write
 
 1. **验证 Epic 分支存在**：
    ```bash
-   git branch -a | grep "epic/$ARGUMENTS" || echo "❌ 未找到 epic/$ARGUMENTS 分支"
+   git branch -a | grep "epic/$ARGUMENTS" || echo "✗ 未找到 epic/$ARGUMENTS 分支"
    ```
 
 2. **提醒清理 Agent Team**：如果之前使用了 Agent Team，确保所有 teammate 已完成工作。
@@ -31,7 +31,7 @@ git checkout epic/$ARGUMENTS
 
 # 检查未提交更改
 if [ -n "$(git status --porcelain)" ]; then
-  echo "⚠️ Epic 分支有未提交更改："
+  echo "⚠ Epic 分支有未提交更改："
   git status --short
   echo "请先 commit 或 stash"
   exit 1
@@ -82,7 +82,7 @@ git merge epic/$ARGUMENTS --no-ff -m "Merge epic: $ARGUMENTS"
 如果合并失败：
 
 ```
-❌ 合并冲突！
+✗ 合并冲突！
 
 冲突文件：
 {冲突文件列表}
@@ -127,7 +127,7 @@ done
 ### 8. 最终输出
 
 ```
-✅ Epic 合并成功：$ARGUMENTS
+✓ Epic 合并成功：$ARGUMENTS
 
 汇总：
   分支：epic/$ARGUMENTS → main

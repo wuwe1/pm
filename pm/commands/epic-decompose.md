@@ -16,7 +16,7 @@ allowed-tools: Bash, Read, Write, LS, Task
 
 静默完成以下检查，不向用户报告进度。
 
-1. **验证 Epic 存在**：`.claude/epics/$ARGUMENTS/epic.md` 不存在时："❌ Epic 未找到。先运行：/pm:prd-parse $ARGUMENTS"
+1. **验证 Epic 存在**：`.claude/epics/$ARGUMENTS/epic.md` 不存在时："✗ Epic 未找到。先运行：/pm:prd-parse $ARGUMENTS"
 2. **检查已有任务**：若已存在编号任务文件，询问是否删除重建
 3. **验证 Epic Frontmatter**：必须包含 type, name, status, created, prd
 4. **检查 Epic 状态**：若 status 为 done，警告用户
@@ -134,6 +134,6 @@ parallel: true
 
 ### 7. 完成后
 
-1. 确认："✅ 为 $ARGUMENTS 创建了 {count} 个任务"
+1. 确认："✓ 为 $ARGUMENTS 创建了 {count} 个任务"
 2. 总结：总任务数、可并行/需顺序的比例
 3. 建议下一步："运行 `/pm:epic-sync $ARGUMENTS` 同步到 GitHub"

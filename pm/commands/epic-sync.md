@@ -16,13 +16,13 @@ allowed-tools: Bash, Read, Write, LS, Task
 
 ```bash
 # 验证 Epic 存在
-test -f .claude/epics/$ARGUMENTS/epic.md || echo "❌ Epic 未找到。运行：/pm:prd-parse $ARGUMENTS"
+test -f .claude/epics/$ARGUMENTS/epic.md || echo "✗ Epic 未找到。运行：/pm:prd-parse $ARGUMENTS"
 
 # 统计任务文件
 ls .claude/epics/$ARGUMENTS/[0-9]*.md 2>/dev/null | wc -l
 ```
 
-无任务时："❌ 无任务可同步。运行：/pm:epic-decompose $ARGUMENTS"
+无任务时："✗ 无任务可同步。运行：/pm:epic-decompose $ARGUMENTS"
 
 ## 指令
 
@@ -33,7 +33,7 @@ ls .claude/epics/$ARGUMENTS/[0-9]*.md 2>/dev/null | wc -l
 ```bash
 remote_url=$(git remote get-url origin 2>/dev/null || echo "")
 if [[ "$remote_url" == *"wuwe1/pm"* ]]; then
-  echo "❌ 错误：不能同步到模板仓库！"
+  echo "✗ 错误：不能同步到模板仓库！"
   echo "请更新 remote origin 到你自己的仓库。"
   exit 1
 fi
@@ -45,7 +45,7 @@ fi
 # 检测 GitHub 仓库
 remote_url=$(git remote get-url origin 2>/dev/null || echo "")
 REPO=$(echo "$remote_url" | sed 's|.*github.com[:/]||' | sed 's|\.git$||')
-[ -z "$REPO" ] && echo "❌ 无法检测 GitHub 仓库" && exit 1
+[ -z "$REPO" ] && echo "✗ 无法检测 GitHub 仓库" && exit 1
 
 # 剥离 frontmatter，准备 Issue body
 sed '1,/^---$/d; 1,/^---$/d' .claude/epics/$ARGUMENTS/epic.md > /tmp/epic-body.md
@@ -152,7 +152,7 @@ rm .claude/epics/$ARGUMENTS/epic.md.bak
 ### 6. 输出
 
 ```
-✅ 已同步到 GitHub
+✓ 已同步到 GitHub
   - Epic: #{epic_number}
   - 任务：{count} 个 sub-issue 已创建
   - 文件已重命名：001.md → {issue_id}.md

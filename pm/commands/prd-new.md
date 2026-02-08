@@ -17,7 +17,7 @@ allowed-tools: Bash, Read, Write, LS
 静默完成以下检查，不向用户报告进度。
 
 1. **验证 feature name 格式**：必须是 kebab-case（小写字母、数字、连字符），以字母开头
-   - 无效时："❌ Feature name 必须是 kebab-case 格式。示例：user-auth, payment-v2"
+   - 无效时："✗ Feature name 必须是 kebab-case 格式。示例：user-auth, payment-v2"
 
 2. **检查已有 PRD**：若 `.claude/prds/$ARGUMENTS.md` 已存在，询问是否覆盖
 
@@ -146,6 +146,6 @@ created: [运行 date -u +"%Y-%m-%dT%H:%M:%SZ" 获取真实时间]
 
 ### 5. 完成后
 
-1. 确认："✅ PRD 已创建：.claude/prds/$ARGUMENTS.md"
+1. 确认："✓ PRD 已创建：.claude/prds/$ARGUMENTS.md"
 2. 简要总结内容
 3. 建议下一步："运行 `/pm:prd-parse $ARGUMENTS` 创建技术实现 Epic"

@@ -9,7 +9,7 @@
 ```bash
 remote_url=$(git remote get-url origin 2>/dev/null || echo "")
 if [[ "$remote_url" == *"wuwe1/pm"* ]]; then
-  echo "❌ 错误：不能在 PM 模板仓库上执行此操作！"
+  echo "✗ 错误：不能在 PM 模板仓库上执行此操作！"
   echo ""
   echo "此仓库是模板，不应在此创建 Issues 或 PR。"
   echo ""
@@ -35,7 +35,7 @@ fi
 **不预检查认证**，直接执行命令并处理失败：
 
 ```bash
-gh {command} || echo "❌ GitHub CLI 失败。运行：gh auth login"
+gh {command} || echo "✗ GitHub CLI 失败。运行：gh auth login"
 ```
 
 ## 常用操作
@@ -73,7 +73,7 @@ gh issue comment {number} --body-file {file}
 ## 错误处理
 
 gh 命令失败时：
-1. 明确报错："❌ GitHub 操作失败：{command}"
+1. 明确报错："✗ GitHub 操作失败：{command}"
 2. 建议修复："运行 gh auth login 或检查 Issue 编号"
 3. 不自动重试
 

@@ -19,11 +19,11 @@ allowed-tools: Bash, Read, Write, LS, Task
    ```bash
    gh issue view $ARGUMENTS --json state,title,labels,body
    ```
-   失败时："❌ 无法访问 Issue #$ARGUMENTS。检查编号或运行：gh auth login"
+   失败时："✗ 无法访问 Issue #$ARGUMENTS。检查编号或运行：gh auth login"
 
 2. **查找本地任务文件**：
    - 查找 `.claude/epics/*/$ARGUMENTS.md`（Issue 编号命名）
-   - 未找到时："❌ 未找到 Issue #$ARGUMENTS 的本地任务文件"
+   - 未找到时："✗ 未找到 Issue #$ARGUMENTS 的本地任务文件"
 
 ## 默认模式（当前 session 直接工作）
 
@@ -73,7 +73,7 @@ git push -u origin issue/$ARGUMENTS
 ### 5. 输出
 
 ```
-✅ Issue #$ARGUMENTS 已完成
+✓ Issue #$ARGUMENTS 已完成
 
 分支：issue/$ARGUMENTS
 提交：{commit_count} 个 commit
@@ -92,7 +92,7 @@ git push -u origin issue/$ARGUMENTS
 
 未启用时输出：
 ```
-❌ Agent Teams 未启用。请在 settings.json 中添加：
+✗ Agent Teams 未启用。请在 settings.json 中添加：
 { "env": { "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1" } }
 或设置环境变量：export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
 然后重启 Claude Code。
@@ -123,4 +123,4 @@ git push -u origin issue/$ARGUMENTS
 
 ## 错误处理
 
-失败时报告："❌ {失败原因}：{解决方案}"
+失败时报告："✗ {失败原因}：{解决方案}"

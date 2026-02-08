@@ -17,7 +17,7 @@ allowed-tools: Bash, Read, Write, LS
 静默完成以下检查，不向用户报告进度。
 
 1. **验证参数**：未提供 feature_name 时报错
-2. **验证 PRD 存在**：`.claude/prds/$ARGUMENTS.md` 不存在时："❌ PRD 未找到。先运行：/pm:prd-new $ARGUMENTS"
+2. **验证 PRD 存在**：`.claude/prds/$ARGUMENTS.md` 不存在时："✗ PRD 未找到。先运行：/pm:prd-new $ARGUMENTS"
 3. **验证 PRD Frontmatter**：必须包含 type, name, description, status, created
 4. **检查已有 Epic**：若 `.claude/epics/$ARGUMENTS/epic.md` 已存在，询问是否覆盖
 5. **确保目录存在**：`mkdir -p .claude/epics/$ARGUMENTS`
@@ -134,6 +134,6 @@ tasks_done: 0
 
 ### 5. 完成后
 
-1. 确认："✅ Epic 已创建：.claude/epics/$ARGUMENTS/epic.md"
+1. 确认："✓ Epic 已创建：.claude/epics/$ARGUMENTS/epic.md"
 2. 总结：任务类别数、关键架构决策
 3. 建议下一步："运行 `/pm:epic-decompose $ARGUMENTS` 拆分为具体任务"
